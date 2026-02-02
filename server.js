@@ -5,18 +5,15 @@ import dotenv from "dotenv"
 dotenv.config()
 
 const app = express()
+
 app.use(cors({
-  origin: true,
-  credentials: false
+  origin: "https://ironfurry.github.io",
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"],
+  credentials: true
 }))
+
 app.use(express.json())
-
-app.use(cors({
-  origin: '*',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
-
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected ❤️"))
