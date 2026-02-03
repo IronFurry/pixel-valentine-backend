@@ -44,7 +44,7 @@ app.post("/create", async (req, res) => {
 //msg count 
 app.get("/stats", async (req, res) => {
   const msg_count = await Message.countDocuments()  
-  res.json({ count })
+  res.json({ msg_count })
 })
 
 // READ + DELETE
